@@ -29,6 +29,7 @@
         <department-form
           :key="newModelDialog"
           @close="newModelDialog = false"
+          @submit="getItems()"
         />
       </v-dialog>
     </v-card-title>

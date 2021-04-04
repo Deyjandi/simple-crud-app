@@ -26,7 +26,11 @@
           </v-btn>
         </template>
 
-        <user-form :key="newModelDialog" @close="newModelDialog = false" />
+        <user-form
+          :key="newModelDialog"
+          @close="newModelDialog = false"
+          @submit="getItems()"
+        />
       </v-dialog>
     </v-card-title>
 

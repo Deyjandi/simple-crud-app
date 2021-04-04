@@ -28,7 +28,7 @@ export default {
           to: "/users"
         },
         {
-          icon: "mdi-account-group",
+          icon: "mdi-domain",
           text: "Departments",
           to: "/departments"
         }

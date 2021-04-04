@@ -31,9 +31,12 @@ class UserController extends Controller
     public function store(StoreUpdateRequest $request): JsonResponse
     {
         $validatedData = $request->validated();
+        $password = $validatedData['password'];
         $departments = $validatedData['departments'] ?? null;
 
-        $user = User::create($validatedData);
+        $user = new User($validatedData);
+        $user->password = $password;
+        $user->save();
 
         if ($departments) {
             $user->departments()->sync($departments);
@@ -66,9 +69,9 @@ class UserController extends Controller
     public function update(StoreUpdateRequest $request, User $user): JsonResponse
     {
         $validatedData = $request->validated();
-        $pwd = $validatedData['password'] ?? null;
+        $password = $validatedData['password'] ?? null;
 
-        if ($pwd) $user->password = $pwd;
+        if ($password) $user->password = $password;
 
         $user->fill($validatedData)->save();
 
