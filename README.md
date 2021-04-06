@@ -1,1 +1,1 @@
-# primer-software-test
+# Simple CRUD web application using Laravel + NuxtJS
